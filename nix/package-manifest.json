@@ -1,0 +1,23 @@
+{
+  "stubbed": false,
+  "package": {
+    "repo": "pi-coding-agent",
+    "npmName": "@mariozechner/pi-coding-agent",
+    "version": "0.60.0"
+  },
+  "binary": {
+    "name": "pi-coding-agent",
+    "upstreamName": "pi",
+    "entrypoint": "dist/cli.js",
+    "aliases": []
+  },
+  "dist": {
+    "url": "https://registry.npmjs.org/@mariozechner/pi-coding-agent/-/pi-coding-agent-0.60.0.tgz",
+    "hash": "sha512-IOv7cTU4nbznFNUE5ofi13k2dmSG39coBoGWIBQTVw3iVyl0HxuHbg0NiTx3ktrPIDNtkii+y7tWXzWqwoo4lw=="
+  },
+  "meta": {
+    "description": "Coding agent CLI with read, bash, edit, write tools and session management",
+    "homepage": "https://github.com/badlogic/pi-mono#readme",
+    "licenseSpdx": "MIT"
+  }
+}

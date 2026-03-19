@@ -38,6 +38,7 @@
           package = pkgs.callPackage ./nix/package.nix { };
         in {
           default = package;
+          pi-coding-agent = package;
           pi = package.pi;
           gmi = package.gmi;
           cc = package.cc;

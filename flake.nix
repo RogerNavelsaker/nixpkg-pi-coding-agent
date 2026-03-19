@@ -33,17 +33,9 @@
         };
       });
     in {
-      packages = forAllSystems ({ pkgs }:
-        let
-          package = pkgs.callPackage ./nix/package.nix { };
-        in {
-          default = package;
-          pi-coding-agent = package;
-          pi = package.pi;
-          gmi = package.gmi;
-          cc = package.cc;
-          cod = package.cod;
-        });
+      packages = forAllSystems ({ pkgs }: {
+        default = pkgs.callPackage ./nix/package.nix { };
+      });
 
       devShells = forAllSystems ({ pkgs }: {
         default = pkgs.mkShell {

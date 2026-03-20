@@ -1,4 +1,4 @@
-{ bash, bun, bun2nix, lib, makeWrapper, symlinkJoin }:
+{ bash, bun, bun2nix, fetchFromGitHub, lib, makeWrapper, symlinkJoin }:
 
 let
   manifest = builtins.fromJSON (builtins.readFile ./package-manifest.json);
@@ -50,6 +50,12 @@ EOF
       ''
     )
     aliasSpecs;
+  osEcoPiExtensionSrc = fetchFromGitHub {
+    owner = "RogerNavelsaker";
+    repo = "os-eco-pi-extension";
+    rev = "8319e34b39fbf13e963786c2017ce1e16b9091c0";
+    hash = "sha256-4hUkWHCR4hN07N50ZmQb6i5kXct+fAXOZC4/qn4NiHY=";
+  };
   basePackage = bun2nix.writeBunApplication {
     pname = manifest.package.repo;
     version = packageVersion;
@@ -86,7 +92,12 @@ symlinkJoin {
     entrypoint="$(find "${basePackage}/share/${manifest.package.repo}/node_modules" -path "*/node_modules/${manifest.package.npmName}/${manifest.binary.entrypoint}" | head -n 1)"
     cat > "$out/bin/${manifest.binary.name}" <<EOF
 #!${lib.getExe bash}
-exec ${lib.getExe' bun "bun"} "$entrypoint" "\$@"
+default_os_eco_extension=${lib.escapeShellArg (toString osEcoPiExtensionSrc)}
+os_eco_extension="\''${PI_OS_ECO_EXTENSION_PATH:-\$default_os_eco_extension}"
+if [ -n "\''${PI_OS_ECO_EXTENSION_DISABLE:-}" ]; then
+  exec ${lib.getExe' bun "bun"} "$entrypoint" "\$@"
+fi
+exec ${lib.getExe' bun "bun"} "$entrypoint" -e "\$os_eco_extension" "\$@"
 EOF
     chmod +x "$out/bin/${manifest.binary.name}"
     ${aliasOutputLinks}

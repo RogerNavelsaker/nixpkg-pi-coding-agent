@@ -1,4 +1,4 @@
-# pi-coding-agent
+# nixpkg-pi-coding-agent
 
 Nix packaging for `@mariozechner/pi-coding-agent` using Bun and `bun2nix`.
 

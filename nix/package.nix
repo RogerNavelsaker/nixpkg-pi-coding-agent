@@ -90,6 +90,7 @@ symlinkJoin {
     rm -rf "$out/bin"
     mkdir -p "$out/bin"
     entrypoint="$(find "${basePackage}/share/${manifest.package.repo}/node_modules" -path "*/node_modules/${manifest.package.npmName}/${manifest.binary.entrypoint}" | head -n 1)"
+    ln -s ${lib.getExe' bun "bun"} "$out/bin/bun"
     cat > "$out/bin/${manifest.binary.name}" <<EOF
 #!${lib.getExe bash}
 default_os_eco_extension=${lib.escapeShellArg (toString osEcoPiExtensionSrc)}

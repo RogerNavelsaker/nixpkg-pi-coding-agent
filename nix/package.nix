@@ -103,5 +103,7 @@ EOF
     chmod +x "$out/bin/${manifest.binary.name}"
     ${aliasOutputLinks}
   '';
-  meta = basePackage.meta;
+  meta = basePackage.meta // {
+    priority = 4;
+  };
 }

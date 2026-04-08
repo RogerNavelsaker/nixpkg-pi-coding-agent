@@ -213,21 +213,21 @@
     url = "https://registry.npmjs.org/@mariozechner/jiti/-/jiti-2.6.5.tgz";
     hash = "sha512-faGUlTcXka5l7rv0lP3K3vGW/ejRuOS24RR2aSFWREUQqzjgdsuWNo/IiPqL3kWRGt6Ahl2+qcDAwtdeWeuGUw==";
   };
-  "@mariozechner/pi-agent-core@0.65.2" = fetchurl {
-    url = "https://registry.npmjs.org/@mariozechner/pi-agent-core/-/pi-agent-core-0.65.2.tgz";
-    hash = "sha512-GYOrX5aRUpSDMPtKR174Tv72CWH92anqlRuiGn8PV05OowPAahT99JoxvZEP4fcKANBdHsyDfMMwFYpPhvPBUQ==";
+  "@mariozechner/pi-agent-core@0.66.0" = fetchurl {
+    url = "https://registry.npmjs.org/@mariozechner/pi-agent-core/-/pi-agent-core-0.66.0.tgz";
+    hash = "sha512-cFPeXVDqb44k1dMsWLuxFnfJd3GxgDI/ujWU0LGIibxnU8LQBfUXOsri6Qmx+7BGVmcbLfPFXQy8wED/HPb4SA==";
   };
-  "@mariozechner/pi-ai@0.65.2" = fetchurl {
-    url = "https://registry.npmjs.org/@mariozechner/pi-ai/-/pi-ai-0.65.2.tgz";
-    hash = "sha512-XCbXncmh10Q89tvS0880Ms6pv3DTxFTEtanfVHEPXKQBi0FBYnrkAlOnP5VRU8vCfe18P1AMNsWCndsCBUqY7g==";
+  "@mariozechner/pi-ai@0.66.0" = fetchurl {
+    url = "https://registry.npmjs.org/@mariozechner/pi-ai/-/pi-ai-0.66.0.tgz";
+    hash = "sha512-mN/Ke4hWqOdslvnd0c4q5t/++pXjFqqBU8S80lKvXlxUHAl9Mvx/IqVQS/ZOYDc2J83htrTik7KLEH2p+tadCg==";
   };
-  "@mariozechner/pi-coding-agent@0.65.2" = fetchurl {
-    url = "https://registry.npmjs.org/@mariozechner/pi-coding-agent/-/pi-coding-agent-0.65.2.tgz";
-    hash = "sha512-/rpFzPQ+CishxrSwJHSSRZBQHHWy2K3Rbu/iV0HcMq/hl9cSI2ygpwjVTRbPW+NuP1tHxVV3AMxz69VLAs5Ztg==";
+  "@mariozechner/pi-coding-agent@0.66.0" = fetchurl {
+    url = "https://registry.npmjs.org/@mariozechner/pi-coding-agent/-/pi-coding-agent-0.66.0.tgz";
+    hash = "sha512-TgT4dfYd0iWuBd3Y+ubW2mwEVIfijctiu3TEKZUqTzwUmQxpI+3Lkg/JrwcwDY1eqzqg5+eTMile+v5J/ufjwA==";
   };
-  "@mariozechner/pi-tui@0.65.2" = fetchurl {
-    url = "https://registry.npmjs.org/@mariozechner/pi-tui/-/pi-tui-0.65.2.tgz";
-    hash = "sha512-LBPbIBASjCF4QLrc/dwmPdBzVMsbkDhzmBIAFgglX5rZBnGRppB7ekSA+1kb5pdxDpDn8IbxJX+bl7ZaeqZqxw==";
+  "@mariozechner/pi-tui@0.66.0" = fetchurl {
+    url = "https://registry.npmjs.org/@mariozechner/pi-tui/-/pi-tui-0.66.0.tgz";
+    hash = "sha512-MphPNFpTOTGKie6KoeZi0vLCL3ZpgAjiZ1mLPe87FIRfKnmFAJIJnTqOaxTNZnSgj5WzQSpIQNdsqc8nWBzB3w==";
   };
   "@mistralai/mistralai@1.14.1" = fetchurl {
     url = "https://registry.npmjs.org/@mistralai/mistralai/-/mistralai-1.14.1.tgz";

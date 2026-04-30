@@ -53,6 +53,7 @@ EOF
     module = "node_modules/${manifest.package.npmName}/${manifest.binary.entrypoint}";
     bunCompileToBytecode = false;
     postInstall = ''
+      local pkgDir="node_modules/${manifest.package.npmName}"
       mkdir -p "$out/libexec"
       if [ -d "$pkgDir/dist" ]; then
         cp -r "$pkgDir/dist/." "$out/libexec/"

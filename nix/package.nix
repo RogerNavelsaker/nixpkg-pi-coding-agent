@@ -66,7 +66,8 @@ EOF
         cp -R "$pkgDir/src/modes/interactive/assets" "$out/libexec/src/modes/interactive/assets"
       fi
       mkdir -p "$out/share/${manifest.package.repo}/global/node_modules"
-      cat > "$out/bin/bun" <<EOF
+      mkdir -p "$out/libexec"
+      cat > "$out/libexec/bun" <<EOF
 #!${lib.getExe bash}
 if [ "\$1" = "root" ] && [ "\$2" = "-g" ]; then
   printf '%s\n' "$out/share/${manifest.package.repo}/global/node_modules"
@@ -74,10 +75,10 @@ if [ "\$1" = "root" ] && [ "\$2" = "-g" ]; then
 fi
 exec ${lib.getExe' bun "bun"} "\$@"
 EOF
-      chmod +x "$out/bin/bun"
+      chmod +x "$out/libexec/bun"
       cat > "$out/bin/${manifest.binary.name}" <<EOF
 #!${lib.getExe bash}
-export PATH="$out/bin''${PATH:+:$PATH}"
+export PATH="$out/libexec''${PATH:+:$PATH}"
 exec "$out/libexec/${manifest.binary.name}" "\$@"
 EOF
       chmod +x "$out/bin/${manifest.binary.name}"

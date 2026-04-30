@@ -54,24 +54,30 @@ EOF
     bunCompileToBytecode = false;
     postInstall = ''
       pkgDir="node_modules/${manifest.package.npmName}"
-      mkdir -p "$out/libexec"
+      # Separate dist for assets not part of compiled binary
+      distDir="$out/libexec/${manifest.binary.name}/dist"
+      mkdir -p "$distDir"
+
       if [ -d "$pkgDir/dist" ]; then
-        cp -r "$pkgDir/dist/." "$out/libexec/"
-        # Support compiled binary layout (looks for assets relative to binary in libexec/)
-        cp -r "$pkgDir/dist/modes/interactive/theme" "$out/libexec/theme"
-        cp -r "$pkgDir/dist/modes/interactive/assets" "$out/libexec/assets"
-        cp -r "$pkgDir/dist/core/export-html" "$out/libexec/export-html"
+        cp -r "$pkgDir/dist/." "$distDir/"
+        # Support compiled binary layout (looks for assets relative to binary)
+        cp -r "$pkgDir/dist/modes/interactive/theme" "$distDir/theme"
+        cp -r "$pkgDir/dist/modes/interactive/assets" "$distDir/assets"
+        cp -r "$pkgDir/dist/core/export-html" "$distDir/export-html"
       fi
       if [ -d "node_modules" ]; then
-        cp -r node_modules "$out/libexec/node_modules"
+        cp -r node_modules "$distDir/node_modules"
       fi
-      mv "$out/bin/${manifest.binary.name}" "$out/libexec/${manifest.binary.name}"
-      cp "$pkgDir/package.json" "$out/libexec/package.json"
+      cp "$pkgDir/package.json" "$distDir/package.json"
       if [ -d "$pkgDir/src/modes/interactive/assets" ]; then
-        mkdir -p "$out/libexec/src/modes/interactive"
-        cp -r "$pkgDir/src/modes/interactive/assets" "$out/libexec/src/modes/interactive/assets"
+        mkdir -p "$distDir/src/modes/interactive"
+        cp -r "$pkgDir/src/modes/interactive/assets" "$distDir/src/modes/interactive/assets"
       fi
-      mkdir -p "$out/share/${manifest.package.repo}/global/node_modules"
+
+      # Move the compiled binary to the dist directory so it can find assets relatively
+      mv "$out/bin/${manifest.binary.name}" "$distDir/${manifest.binary.name}"
+
+      # Leave bin/bun in libexec
       mkdir -p "$out/libexec/bin"
       cat > "$out/libexec/bin/bun" <<EOF
 #!${lib.getExe bash}
@@ -82,12 +88,18 @@ fi
 exec ${lib.getExe' bun "bun"} "\$@"
 EOF
       chmod +x "$out/libexec/bin/bun"
+
+      # Main wrapper in bin/
+      mkdir -p "$out/bin"
       cat > "$out/bin/${manifest.binary.name}" <<EOF
 #!${lib.getExe bash}
 export PATH="$out/libexec/bin''${PATH:+:$PATH}"
-exec "$out/libexec/${manifest.binary.name}" "\$@"
+export PI_PACKAGE_DIR="$distDir"
+exec "$distDir/${manifest.binary.name}" "\$@"
 EOF
       chmod +x "$out/bin/${manifest.binary.name}"
+
+      mkdir -p "$out/share/${manifest.package.repo}/global/node_modules"
     '';
     meta = with lib; {
       description = manifest.meta.description;

@@ -93,7 +93,7 @@ EOF
       mkdir -p "$out/bin"
       cat > "$out/bin/${manifest.binary.name}" <<EOF
 #!${lib.getExe bash}
-export PATH="$out/libexec/bin''${PATH:+:$PATH}"
+export PATH="$out/libexec/bin\''${PATH:+:\$PATH}"
 export PI_PACKAGE_DIR="$distDir"
 exec "$distDir/${manifest.binary.name}" "\$@"
 EOF

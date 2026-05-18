@@ -157,21 +157,21 @@
     url = "https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.2.tgz";
     hash = "sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g==";
   };
-  "@earendil-works/pi-agent-core@0.75.0" = fetchurl {
-    url = "https://registry.npmjs.org/@earendil-works/pi-agent-core/-/pi-agent-core-0.75.0.tgz";
-    hash = "sha512-JThRS1QKyAm/Uzq1nzc/JG/CO8gssYZObGxAzLqX+NET0XCFf+6LJ+Adg2+6R33Ec/TH0ZFQ7MNVRwiNDgbKeQ==";
+  "@earendil-works/pi-agent-core@0.75.1" = fetchurl {
+    url = "https://registry.npmjs.org/@earendil-works/pi-agent-core/-/pi-agent-core-0.75.1.tgz";
+    hash = "sha512-JVpX/Zle/enBzEM6he9sE0ASMo8Yhm8q7nOuPQjR/BXhkTBUevrNz7wtTV8VFvgjyhsXzbAsNCP5A4LiCcDx/A==";
   };
-  "@earendil-works/pi-ai@0.75.0" = fetchurl {
-    url = "https://registry.npmjs.org/@earendil-works/pi-ai/-/pi-ai-0.75.0.tgz";
-    hash = "sha512-mWSYHAjGQPs8fr+OjWXC/HvPAgybzuwqe4aFy69DZpc6a19NlaNvHLEUjqzMqQwS1vaQE36kPn0yk7CZE2aznw==";
+  "@earendil-works/pi-ai@0.75.1" = fetchurl {
+    url = "https://registry.npmjs.org/@earendil-works/pi-ai/-/pi-ai-0.75.1.tgz";
+    hash = "sha512-/bhCWS2R+qHLBDnN+d1t1QRUxtZk7sZpMcrlexPq3W++3bJ0Df0GjhM2FToTubhoCsjOBdBOuRYcV8FNPfRUVQ==";
   };
-  "@earendil-works/pi-coding-agent@0.75.0" = fetchurl {
-    url = "https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-0.75.0.tgz";
-    hash = "sha512-FSy7Py32+BA40GGvNktzmAuzYj2H110Op+QrH2dJhPNVV/BbO2siMG28p1SFNburV+7JQcXWZfcPUlAnNzKIRQ==";
+  "@earendil-works/pi-coding-agent@0.75.1" = fetchurl {
+    url = "https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-0.75.1.tgz";
+    hash = "sha512-QMbmv8lFQ8P98kpuMc/z1ATTq7t0lQ+Bo3GLiOKQ/HonO34n4E1+395FCqlmG8zJEhiMp4yqVTzlj7BALQMlqw==";
   };
-  "@earendil-works/pi-tui@0.75.0" = fetchurl {
-    url = "https://registry.npmjs.org/@earendil-works/pi-tui/-/pi-tui-0.75.0.tgz";
-    hash = "sha512-bz5c/8A1XmVeZ1P0ogMMqGUlaThyMdKKSiL1KlO9kLB+PY1T/+aQC0gsfC8RLUwji6NBzSZtFQLU52ckYlm94g==";
+  "@earendil-works/pi-tui@0.75.1" = fetchurl {
+    url = "https://registry.npmjs.org/@earendil-works/pi-tui/-/pi-tui-0.75.1.tgz";
+    hash = "sha512-IFDSvCXcXMoIxFKxdhqc7ybX8p86KpdxoTUTYEq3FHilMFkBqlXqZD0jZBitqxStBjjMkAlhjS1bKS0IOXSpsg==";
   };
   "@google/genai@1.46.0" = fetchurl {
     url = "https://registry.npmjs.org/@google/genai/-/genai-1.46.0.tgz";

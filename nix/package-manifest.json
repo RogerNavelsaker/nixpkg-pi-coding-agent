@@ -3,7 +3,7 @@
   "package": {
     "repo": "pi-coding-agent",
     "npmName": "@earendil-works/pi-coding-agent",
-    "version": "0.81.0",
+    "version": "0.81.1",
     "packageRevision": 4
   },
   "binary": {
@@ -45,8 +45,8 @@
     ]
   },
   "dist": {
-    "url": "https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-0.81.0.tgz",
-    "hash": "sha512-2p0Dnx+3fkPLga8M82eg14ZYNLcFLhqxxKyVVfqUSIio9Xx4p7UjvJtopx/6PTeJKmdJl1/xOm/c02AFcJ+l/g=="
+    "url": "https://registry.npmjs.org/@earendil-works/pi-coding-agent/-/pi-coding-agent-0.81.1.tgz",
+    "hash": "sha512-r6ovAsZOgAqbC/aU6s+/dPnv/sGZBuWyZNvi3pXjpbuX5wvp3XvGkQI7/VLvX2o9XpmpFaPUxKNym1WfkN/P8A=="
   },
   "meta": {
     "description": "Coding agent CLI with read, bash, edit, write tools and session management",

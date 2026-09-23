@@ -95,7 +95,7 @@ EOF
 #!${lib.getExe bash}
 export PATH="$out/libexec/bin\''${PATH:+:\$PATH}"
 export PI_PACKAGE_DIR="$distDir"
-exec "$distDir/${manifest.binary.name}" "\$@"
+exec "$distDir/node_modules/.bin/${manifest.binary.upstreamName}" "\$@"
 EOF
       chmod +x "$out/bin/${manifest.binary.name}"
 

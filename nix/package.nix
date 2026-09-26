@@ -54,8 +54,8 @@ EOF
     bunCompileToBytecode = false;
     postInstall = ''
       pkgDir="node_modules/${manifest.package.npmName}"
-      # Separate dist for assets not part of compiled binary
-      distDir="$out/libexec/${manifest.binary.name}/dist"
+      pkgRoot="$out/libexec/${manifest.binary.name}"
+      distDir="$pkgRoot/dist"
       mkdir -p "$distDir"
 
       if [ -d "$pkgDir/dist" ]; then
@@ -66,12 +66,13 @@ EOF
         cp -r "$pkgDir/dist/core/export-html" "$distDir/export-html"
       fi
       if [ -d "node_modules" ]; then
-        cp -r node_modules "$distDir/node_modules"
+        cp -r node_modules "$pkgRoot/node_modules"
       fi
+      cp "$pkgDir/package.json" "$pkgRoot/package.json"
       cp "$pkgDir/package.json" "$distDir/package.json"
       if [ -d "$pkgDir/src/modes/interactive/assets" ]; then
-        mkdir -p "$distDir/src/modes/interactive"
-        cp -r "$pkgDir/src/modes/interactive/assets" "$distDir/src/modes/interactive/assets"
+        mkdir -p "$pkgRoot/src/modes/interactive"
+        cp -r "$pkgDir/src/modes/interactive/assets" "$pkgRoot/src/modes/interactive/assets"
       fi
 
       # Move the compiled binary to the dist directory so it can find assets relatively
@@ -94,8 +95,8 @@ EOF
       cat > "$out/bin/${manifest.binary.name}" <<EOF
 #!${lib.getExe bash}
 export PATH="$out/libexec/bin\''${PATH:+:\$PATH}"
-export PI_PACKAGE_DIR="$distDir"
-exec "$distDir/node_modules/.bin/${manifest.binary.upstreamName}" "\$@"
+export PI_PACKAGE_DIR="$pkgRoot"
+exec "$pkgRoot/node_modules/.bin/${manifest.binary.upstreamName}" "\$@"
 EOF
       chmod +x "$out/bin/${manifest.binary.name}"
 

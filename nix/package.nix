@@ -1,4 +1,4 @@
-{ bash, bun, bun2nix, lib, symlinkJoin, nodejs }:
+{ bash, bun, bun2nix, lib, symlinkJoin }:
 
 let
   manifest = builtins.fromJSON (builtins.readFile ./package-manifest.json);
@@ -96,7 +96,7 @@ EOF
 #!${lib.getExe bash}
 export PATH="$out/libexec/bin\''${PATH:+:\$PATH}"
 export PI_PACKAGE_DIR="$pkgRoot"
-exec ${lib.getExe nodejs} "$pkgRoot/node_modules/@earendil-works/pi-coding-agent/dist/cli.js" "\$@"
+exec ${lib.getExe bun} "$pkgRoot/node_modules/@earendil-works/pi-coding-agent/dist/cli.js" "\$@"
 EOF
       chmod +x "$out/bin/${manifest.binary.name}"
 
